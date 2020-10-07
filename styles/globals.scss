@@ -1,0 +1,16 @@
+@import 'normalize-scss';
+@include normalize();
+
+@import 'variables';
+
+//@import 'fonts'; //or used google fonts
+@import 'scss/icons';
+@import 'scss/base';
+@import 'scss/wrapper';
+@import 'scss/plugins';
+@import 'scss/animations';
+@import 'scss/typography';
+@import 'scss/forms';
+@import 'scss/buttons';
+@import 'scss/video';
+@import 'scss/helpers';

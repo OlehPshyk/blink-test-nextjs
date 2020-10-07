@@ -1,0 +1,56 @@
+//base of BS4 breakpoints
+$screen-xs:					0;
+$xs:						$screen-xs;
+$screen-sm:					576px;
+$sm:						$screen-sm;
+$screen-md:					768px;
+$md:						$screen-md;
+$screen-lg:					992px;
+$lg:						$screen-lg;
+$screen-xl:					1200px;
+$xl:						$screen-xl;
+
+$content-width: 912px;
+//$content-width: unset;
+$pad-x: 24px;
+
+// $global-font-size: 14px; 
+$global-font-family: 'Inter';
+$global-text-color: #454F5B;
+// $global-link-color: #7551E9;
+
+// $secondary-font-family: ;
+
+//headings
+// $map-heading-size: ( h1: 32px, h2: 28px, h3: 20.5px, h4: 16px, h5: 13px, h6: 10px, );
+// $scale-heading-for-xs: 1;
+// $scale-heading-for-sm: 1;
+// $scale-heading-for-md: 1;
+
+// MIXINS
+@mixin breakpoint($range) {
+  @if $range == sm {@media screen and (min-width: $sm) { @content; }}
+  @else if $range == md {@media screen and (min-width: $md) { @content; }}
+  @else if $range == lg {@media screen and (min-width: $lg) { @content; }}
+  @else if $range == xl {@media screen and (min-width: $xl) { @content; }}    
+
+  @else if $range == xs-only {@media screen and (min-width: $xs) and (max-width: ($sm - 1)) { @content; }}
+  @else if $range == sm-only {@media screen and (min-width: $sm) and (max-width: ($md - 1)) { @content; }}
+  @else if $range == md-only {@media screen and (min-width: $md) and (max-width: ($lg - 1)) { @content; }}
+  @else if $range == lg-only {@media screen and (min-width: $lg) and (max-width: ($xl - 1)) { @content; }}
+  @else if $range == xl-only {@media screen and (min-width: $xl) { @content; }}
+  @else if $range == notebook {@media screen and (min-width: 1200px) and (max-width: 1599px) { @content; }}
+  
+  @else if $range == sm-down {@media screen and (max-width: ($md - 1)) { @content; }}
+  @else if $range == md-down {@media screen and (max-width: ($lg - 1)) { @content; }}
+  @else if $range == lg-down {@media screen and (max-width: ($xl - 1)) { @content; }} 
+}
+
+@mixin outline($outline) {
+  outline: $outline;
+  outline-offset: $outline;
+  :active, :hover, :focus {
+      outline: $outline;
+      outline-offset: $outline;
+  }   
+}

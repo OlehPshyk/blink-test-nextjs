@@ -1,0 +1,38 @@
+@import 'variables.scss';
+
+.header{
+  height: 72px;
+  padding: 12px 24px;
+  background: #FFFFFF; 
+  display: flex;
+  align-items: flex-end;
+  @include breakpoint(lg){
+    height: 56px;
+    padding: 12px 32px;
+    align-items: center;
+  }   
+}
+.logoContainer{
+  height: 24px;
+}
+.logo{
+  width: auto;
+  height: 100%;
+}
+.nav{
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;  
+  @include breakpoint(lg){    
+    align-self: flex-end;
+  } 
+  a{
+    font-family: $global-font-family;    
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1,19;    
+    color: #919EAB;
+  }  
+}
+

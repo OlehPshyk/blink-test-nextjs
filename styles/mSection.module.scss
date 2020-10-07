@@ -1,0 +1,80 @@
+@import 'variables.scss';
+
+.mSection{
+  @include breakpoint(md-down){
+    padding: 16px 24px;
+  }
+  // @include breakpoint(lg){
+  //   padding: 0;
+  // }    
+}
+
+.mSectionBg{
+  min-height: 288px;  
+  // background-color: #046B31;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  
+    background: url('../public/images/m-Image.png') no-repeat 50% 50%/contain;
+    mix-blend-mode: soft-light;  
+  }
+  @include breakpoint(md-down){
+    padding: 16px;
+    background:  #046B31 linear-gradient(180deg, rgba(33, 43, 54, 0.5) 0%, #212B36 100%);    
+    box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.07);
+    border-radius: 8px;    
+  }
+  @include breakpoint(lg){
+    padding: 30px $pad-x 50px;
+    background:  #046B31 linear-gradient(0deg, #202020 -14.24%, rgba(32, 32, 32, 0) 150.87%);
+  }  
+}
+
+.mSectionContent{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: $global-font-family;
+  color: #FFFFFF;
+}
+.t1{ 
+  font-size: 16px;
+  line-height: 1.19;
+}
+.t2{     
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  @include breakpoint(lg){
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+}
+.t21{
+  font-weight: 700;
+}
+.t3{     
+  display: block;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 16px;
+  @include breakpoint(lg){
+    margin-bottom: 18px;
+  }
+}
+.t4{   
+  font-size: 28px;
+  line-height: 1.21;
+  font-weight: 600;
+}
