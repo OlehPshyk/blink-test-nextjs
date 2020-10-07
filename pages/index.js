@@ -16,7 +16,9 @@ export default function Home() {
       </Head>
       <header className={headerStyles.header}>
         <div className={headerStyles.logoContainer}>
-          <img src="images/logo.svg" className={headerStyles.logo}/>
+          <Link href="/">
+            <a><img src="images/logo.svg" className={headerStyles.logo}/></a>
+          </Link>
         </div>
         <nav className={headerStyles.nav}>
           <Link href="#">
