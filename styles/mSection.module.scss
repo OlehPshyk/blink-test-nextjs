@@ -2,7 +2,7 @@
 
 .mSection{
   @include breakpoint(md-down){
-    padding: 16px 24px;
+    padding: 0 24px;
   }
   // @include breakpoint(lg){
   //   padding: 0;
@@ -13,7 +13,6 @@
   min-height: 288px;  
   // background-color: #046B31;
   display: flex;
-  justify-content: flex-start;
   position: relative;
   &:after{
     content: '';
@@ -26,18 +25,22 @@
     mix-blend-mode: soft-light;  
   }
   @include breakpoint(md-down){
-    padding: 16px;
+    padding: 16px 0;
     background:  #046B31 linear-gradient(180deg, rgba(33, 43, 54, 0.5) 0%, #212B36 100%);    
     box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.07);
     border-radius: 8px;    
   }
   @include breakpoint(lg){
-    padding: 30px $pad-x 50px;
+    padding: 30px 0 50px;
     background:  #046B31 linear-gradient(0deg, #202020 -14.24%, rgba(32, 32, 32, 0) 150.87%);
   }  
 }
 
 .mSectionContent{
+  padding: 0 16px;
+  @include breakpoint(lg){    
+    padding: 0 $pad-x;
+  }
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;

@@ -1,0 +1,10 @@
+.lg-only{
+  @include breakpoint(md-down){
+    display: none;
+  }
+}
+.md-down{
+  @include breakpoint(lg){
+    display: none;
+  }
+}

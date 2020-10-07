@@ -1,2 +1,65 @@
 @import 'variables.scss';
 
+.page{
+  padding: 16px 0 25px;
+  @include breakpoint(md-down){
+    position: relative;
+  }
+  @include breakpoint(lg){
+    padding: 0 0 55px;
+  }
+}
+.changeBtnContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include breakpoint(md-down){
+    position: absolute;
+    top: calc(16px + 16px);
+    right: calc(12px + #{$pad-x});    
+  }
+  @include breakpoint(lg){
+    padding: 37px 30px;
+  }
+}
+.changeBtn{
+  @include outline(0);  
+  background: #FAB412;  
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;  
+  cursor: pointer;
+  @include breakpoint(md-down){
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 9px -2px #FAB412;
+  }
+  @include breakpoint(lg){
+    min-height: 40px;  
+    padding: 8px 43px;
+    border-radius: 24px;
+    font-family: $global-font-family;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFFFFF;
+  }
+}
+
+.linkContainer{
+  display: flex;
+  justify-content: center;
+  a{ 
+    text-decoration: underline;
+  }
+}
+.anotherShipmentLink{
+  font-family: $global-font-family;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  color: #919EAB;
+}
