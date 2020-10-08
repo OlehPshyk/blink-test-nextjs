@@ -10,10 +10,12 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31",
     "next": "9.5.3",
     "normalize-scss": "^7.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-moment": "^1.0.0",
     "sass": "^1.26.12"
   }
 }

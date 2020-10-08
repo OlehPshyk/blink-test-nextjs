@@ -1,4 +1,4 @@
-import moment from 'moment'
+import Moment from 'react-moment';
 import classNames from 'classnames';
 
 import addrTimeSectionStyles from './addrTimeSection.module.scss';
@@ -15,9 +15,17 @@ export default function MSection({fullAddress, dropoffStart, dropoffEnd}) {
             </div>
             <span className={addrTimeSectionStyles.itemCardTitle}>Mercoledì 6 Settembre</span>
           </div>
-          <span className={addrTimeSectionStyles.itemCardText}>
-            {/* <Moment>date={dropoffStart}</Moment> - <Moment>date={dropoffEnd}</Moment>   */}
-            {moment(dropoffStart).format('HH.mm')} - {moment(dropoffEnd).format('HH.mm')}
+          <span className={addrTimeSectionStyles.itemCardText}>            
+            {/* {moment(dropoffStart).format('HH.mm')} - {moment(dropoffEnd).format('HH.mm')} */}
+            <Moment 
+              date={dropoffStart}
+              format={'HH.mm'}
+            />
+            &nbsp;-&nbsp;
+            <Moment 
+              date={dropoffEnd}
+              format={'HH.mm'}
+            />
           </span>
         </div>
       </div>
