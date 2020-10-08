@@ -6,7 +6,7 @@ import AddrTimeSection from '../components/AddrTimeSection';
 import classNames from 'classnames';
 import shippingStyles from '../styles/shipping.module.scss';
 
-export default function Home() {
+export default function Home({ data }) {  
   return (
     <React.Fragment>
       <Head>
@@ -15,9 +15,15 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></link>
       </Head>      
       <Header/>
-      <main className={classNames(shippingStyles.page,"main")}> 
-        <MSection/>
-        <AddrTimeSection/>        
+      <main className={classNames(shippingStyles.page,"main")}>
+        <MSection
+          code={data.code}
+          status={data.status}
+          firstName={data.receiver.first_name}
+        />
+        <AddrTimeSection
+          fullAddress={data.receiver.address.full_address}
+        />        
         <div className={shippingStyles.changeBtnContainer}>
           <button className={shippingStyles.changeBtn} onClick={()=>console.log(" Modify delivery button was clicked")}>
             <svg className="md-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,4 +43,69 @@ export default function Home() {
       {/* <footer className="footer"></footer> */}
     </React.Fragment>
   )
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  // const res = await fetch(`.................`)
+  // const data = await res.json()
+  const data = {
+    "price": 9.7,
+    "pickup_ete": "2020-10-05T07:00:00Z",
+    "dropoff_ete": "2020-10-05T12:00:00Z",
+    "uuid": "98db9f8b-153f-40d9-bbd6-ff6e02a382d4",
+    "status": "created",
+    "is_critical": false,
+    "pickup_start": "2020-10-05T07:00:00Z",
+    "pickup_end": "2020-10-05T17:00:00Z",
+    "dropoff_start": "2020-10-05T09:00:00Z",
+    "dropoff_end": "2020-10-05T12:00:00Z",
+    "max_lag": 240,
+    "notes": null,
+    "external_id": null,
+    "code": "JTGE5446",
+    "issued_at": "2020-10-02T17:25:29.460211Z",
+    "sender": {
+      "address": {
+        "full_address": "Via Modestino 1, 20144 Milano, MI",
+        "interphone": "34567890"
+      },
+      "email": "mail@mail.com",
+      "phone": "34567890",
+      "full_name": "jacopo wde",
+      "first_name": "jacopo",
+      "last_name": "wde",
+      "notes": ""
+    },
+    "receiver": {
+      "address": {
+        "full_address": "Viale Papiniano 28, 20123 Milano, MI",
+        "interphone": "123"
+      },
+      "email": "mail@mail.com",
+      "phone": "34567890",
+      "full_name": "jacopo berlu",
+      "first_name": "jacopo",
+      "last_name": "berlu",
+      "notes": ""
+    },
+    "package_set": [
+      {
+        "cold": true,
+        "warm": false,
+        "name": "L",
+        "weight": "10.00",
+        "width": "60.00",
+        "height": "40.00",
+        "depth": "40.00",
+        "fragile": false,
+        "unflippable": true,
+        "unstackable": false,
+        "notes": "",
+        "code": "JTGE5446Q"
+      }
+    ]
+  };
+  // Pass data to the page via props
+  return { props: { data } }
 }

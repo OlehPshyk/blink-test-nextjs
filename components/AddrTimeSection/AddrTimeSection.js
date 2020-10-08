@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import addrTimeSectionStyles from './addrTimeSection.module.scss';
 
-export default function MSection() {
+export default function MSection({fullAddress}) {
   return (        
     <section className={classNames(addrTimeSectionStyles.addrTimeSection, "wrapper")}>
       <div className={addrTimeSectionStyles.addrTimeItem}>
@@ -14,7 +14,7 @@ export default function MSection() {
             </div>
             <span className={addrTimeSectionStyles.itemCardTitle}>Mercoledì 6 Settembre</span>
           </div>
-          <span className={addrTimeSectionStyles.itemCardText}>16.00 - 18.00</span>
+          <span className={addrTimeSectionStyles.itemCardText}>09.00 - 12.00</span>
         </div>
       </div>
       <div className={addrTimeSectionStyles.addrTimeItem}>
@@ -26,7 +26,7 @@ export default function MSection() {
             </div>
             <span className={addrTimeSectionStyles.itemCardTitle}>Milano</span>
           </div>
-          <span className={addrTimeSectionStyles.itemCardText}>Via delle meraviglie 22, 20123 (MI)</span>
+          <span className={addrTimeSectionStyles.itemCardText}>{fullAddress}</span>
         </div>
       </div>
     </section> 
