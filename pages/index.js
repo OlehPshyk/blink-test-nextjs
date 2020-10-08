@@ -1,13 +1,10 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
+import Header from '../components/Header';
+import MSection from '../components/MSection';
+import AddrTimeSection from '../components/AddrTimeSection';
 import classNames from 'classnames';
-
-// import shippingStyles from '../styles/shipping.module.scss'
-
 import shippingStyles from '../styles/shipping.module.scss';
-import headerStyles from '../styles/header.module.scss';
-import mSectionStyles from '../styles/mSection.module.scss';
-import addrTimeStyles from '../styles/addrTime.module.scss';
 
 export default function Home() {
   return (
@@ -16,58 +13,11 @@ export default function Home() {
         <title>Blink test</title>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></link>
-      </Head>
-      <header className={headerStyles.header}>
-        <div className={headerStyles.logoContainer}>
-          <Link href="/">
-            <a><img src="images/logo.svg" className={headerStyles.logo}/></a>
-          </Link>
-        </div>
-        <nav className={headerStyles.nav}>
-          <Link href="#">
-            <a>Vai al sito</a>
-          </Link>
-        </nav>
-      </header>
-      <main className={classNames(shippingStyles.page,"main")}>             
-        <section className={mSectionStyles.mSection}>
-          <div className={mSectionStyles.mSectionBg}>
-            <div className={classNames(mSectionStyles.mSectionContent,"wrapper")}>
-              <span className={mSectionStyles.t1}>SPEDIZIONE N° 1234567890</span>
-              <div className={mSectionStyles.bottomText}>
-                <h2 className={mSectionStyles.t2}>Ciao <span className={mSectionStyles.t21}>Marco</span></h2>
-                <span className={mSectionStyles.t3}>La tua spedizione è stata</span>
-                <h3 className={mSectionStyles.t4}>IN CONSEGNA</h3>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className={classNames(addrTimeStyles.addrTimeSection, "wrapper")}>
-          <div className={addrTimeStyles.addrTimeItem}>
-            <h3 className={addrTimeStyles.addrItemTitle}>Data e ora</h3>
-            <div className={addrTimeStyles.itemCard}>
-              <div className={addrTimeStyles.itemCardTitleBox}>
-                <div className={addrTimeStyles.itemCardImageBox}>
-                  <img className={addrTimeStyles.itemCardImage} src="images/clock.svg"/>
-                </div>
-                <span className={addrTimeStyles.itemCardTitle}>Mercoledì 6 Settembre</span>
-              </div>
-              <span className={addrTimeStyles.itemCardText}>16.00 - 18.00</span>
-            </div>
-          </div>
-          <div className={addrTimeStyles.addrTimeItem}>
-            <h3 className={addrTimeStyles.addrItemTitle}>Indirizzo</h3>
-            <div className={addrTimeStyles.itemCard}>
-              <div className={addrTimeStyles.itemCardTitleBox}>
-                <div className={addrTimeStyles.itemCardImageBox}>
-                  <img className={addrTimeStyles.itemCardImage} src="images/marker.svg"/>
-                </div>
-                <span className={addrTimeStyles.itemCardTitle}>Milano</span>
-              </div>
-              <span className={addrTimeStyles.itemCardText}>Via delle meraviglie 22, 20123 (MI)</span>
-            </div>
-          </div>
-        </section>
+      </Head>      
+      <Header/>
+      <main className={classNames(shippingStyles.page,"main")}> 
+        <MSection/>
+        <AddrTimeSection/>        
         <div className={shippingStyles.changeBtnContainer}>
           <button className={shippingStyles.changeBtn} onClick={()=>console.log(" Modify delivery button was clicked")}>
             <svg className="md-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
