@@ -1,8 +1,9 @@
+import moment from 'moment'
 import classNames from 'classnames';
 
 import addrTimeSectionStyles from './addrTimeSection.module.scss';
 
-export default function MSection({fullAddress}) {
+export default function MSection({fullAddress, dropoffStart, dropoffEnd}) {  
   return (        
     <section className={classNames(addrTimeSectionStyles.addrTimeSection, "wrapper")}>
       <div className={addrTimeSectionStyles.addrTimeItem}>
@@ -14,7 +15,10 @@ export default function MSection({fullAddress}) {
             </div>
             <span className={addrTimeSectionStyles.itemCardTitle}>Mercoledì 6 Settembre</span>
           </div>
-          <span className={addrTimeSectionStyles.itemCardText}>09.00 - 12.00</span>
+          <span className={addrTimeSectionStyles.itemCardText}>
+            {/* <Moment>date={dropoffStart}</Moment> - <Moment>date={dropoffEnd}</Moment>   */}
+            {moment(dropoffStart).format('HH.mm')} - {moment(dropoffEnd).format('HH.mm')}
+          </span>
         </div>
       </div>
       <div className={addrTimeSectionStyles.addrTimeItem}>

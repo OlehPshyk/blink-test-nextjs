@@ -6,7 +6,7 @@ import AddrTimeSection from '../components/AddrTimeSection';
 import classNames from 'classnames';
 import shippingStyles from '../styles/shipping.module.scss';
 
-export default function Home({ data }) {  
+export default function Home({ data }) {
   return (
     <React.Fragment>
       <Head>
@@ -23,6 +23,8 @@ export default function Home({ data }) {
         />
         <AddrTimeSection
           fullAddress={data.receiver.address.full_address}
+          dropoffStart={data.dropoff_start}
+          dropoffEnd={data.dropoff_end}          
         />        
         <div className={shippingStyles.changeBtnContainer}>
           <button className={shippingStyles.changeBtn} onClick={()=>console.log(" Modify delivery button was clicked")}>
@@ -105,7 +107,6 @@ export async function getServerSideProps() {
         "code": "JTGE5446Q"
       }
     ]
-  };
-  // Pass data to the page via props
+  };  
   return { props: { data } }
 }
